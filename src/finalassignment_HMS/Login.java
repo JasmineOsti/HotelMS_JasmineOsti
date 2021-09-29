@@ -86,8 +86,10 @@ public class Login extends JFrame implements ActionListener {
             
             if (result.next()) {
             	JOptionPane.showMessageDialog(loginButton, "Login Successful.");
-            	frame.dispose();
-            	new RoomPage();            
+            	
+            	CustomerBook callRun = new CustomerBook(); 
+            	dispose();
+            	callRun.run();
             } else {
                 JOptionPane.showMessageDialog(loginButton, "Invalid Username or Password");
             }
@@ -97,14 +99,7 @@ public class Login extends JFrame implements ActionListener {
         }
     	}
     	
-    	if(e.getSource()==signupButton) {
-			new Registration();
-		}
-        //Coding Part of RESET button
-        if (e.getSource() == resetButton) {
-            userTextField.setText("");
-            passwordField.setText("");
-        }
+    
        //Coding Part of showPassword JCheckBox
         if (e.getSource() == showPassword) {
             if (showPassword.isSelected()) {
